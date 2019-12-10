@@ -1,15 +1,6 @@
-const defaultState = {
-    list : []
-}
+import {combineReducers} from 'redux'
+import {reducers as list } from 'pages/home/'
 
-export default (state=defaultState,action)=>{
-    switch (action.type) {
-        case 'loadDate':
-            return {
-                list:action.date
-            }
-    
-        default:
-            return state
-    }
-}
+export default combineReducers({
+    home:list
+})

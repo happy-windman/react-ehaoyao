@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { TabBar } from 'antd-mobile'
-import Home from './home/home'
+import {Home} from './home/'
 
 import home from 'assets/images/home.png'
 import homeActive from 'assets/images/homeActive.png'
