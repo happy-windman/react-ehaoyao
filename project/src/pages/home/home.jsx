@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import BScroll from 'better-scroll'
+
 import {get} from '../../utils/http'
 
 import Header from './header'
@@ -25,15 +27,21 @@ export default class Home extends Component {
     })
     this.setState({
       homeData:result[0]
+    }) 
+    let bScroll = new BScroll('.main',{
+      // preventDefault:false,
+      eventPassthrough:'horizontal',
+      probeType:2,
+      bindToWrapper:true
     })
-    console.log(this.state.homeData.brands);
-    
+    bScroll.refresh()
   }
   render() {
     return (
       <div className="homeWrap">
         <Header></Header>
         <div className="main">
+          <div>
           <Swiper></Swiper>
           <PromiseBox></PromiseBox>
           <Grid></Grid>
@@ -44,6 +52,7 @@ export default class Home extends Component {
           <PromotionBox></PromotionBox>
           <GoodsBox data={this.state.homeData.goods}></GoodsBox>
           <BottomBox></BottomBox>
+          </div>
         </div>
       </div>
       

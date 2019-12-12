@@ -12,7 +12,7 @@ export const LayoutWrap = styled.div`
   }
   .main{
     flex:1;
-    overflow-y:scroll;
+    overflow:hidden;
   }
   .am-tab-bar-bar{
       height:1.2rem

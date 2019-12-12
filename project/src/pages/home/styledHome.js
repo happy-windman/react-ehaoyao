@@ -46,7 +46,15 @@ a{
     text-align: center;
 }
 `
+export const  SwiperWrap = styled.div`
+  height:0;
+  font-size:0;
+  padding-bottom:40%;
+  img{
+    width:100%;
+  }
 
+`
 export const SeckillBoxWrap = styled.div`
     .seckill-box{
       margin-bottom: .2rem;

@@ -11,8 +11,10 @@ export default class countDown extends Component {
     }
   }
   componentDidMount() {
+    
     if(this.props.endTime){
       let endTime = this.props.endTime.replace(/-/g, "/");
+      
       this.countFun(endTime);
     }
   }
@@ -22,8 +24,10 @@ export default class countDown extends Component {
   }
   
   countFun = (time) => {
+   
     let end_time = new Date(time).getTime(),
     sys_second = (end_time - new Date().getTime());
+   
     this.timer = setInterval(() => {
     //防止倒计时出现负数
       if (sys_second > 1000) {
@@ -47,7 +51,7 @@ export default class countDown extends Component {
   }
   render() {
     return (
-      <span>{this.state.day}<i style={{color:'#aaa',fontSize:'normal'}}> 天 </i>{this.state.hour}<i style={{color:'#aaa',fontSize:'normal'}}> 小时 </i>{this.state.minute}<i style={{color:'#aaa',fontSize:'normal'}}> 分 </i>{this.state.second}<i style={{color:'#aaa',fontSize:'normal'}}> 秒</i></span>
+      <span> {this.state.day} <i style={{color:'#aaa',fontSize:'normal'}}> 天 </i>{this.state.hour}<i style={{color:'#aaa',fontSize:'normal'}}> 小时 </i>{this.state.minute}<i style={{color:'#aaa',fontSize:'normal'}}> 分 </i>{this.state.second}<i style={{color:'#aaa',fontSize:'normal'}}> 秒</i></span>
     )
   }
 }

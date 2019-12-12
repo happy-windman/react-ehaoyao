@@ -4,6 +4,7 @@ import reducers from './reducers'
 import sagas from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
+
 const store = createStore(
     reducers,
     applyMiddleware(sagaMiddleware)

@@ -1,0 +1,1 @@
+export const UPDATA = 'category/up_data'

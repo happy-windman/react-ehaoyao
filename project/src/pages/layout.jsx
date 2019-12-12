@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { TabBar } from 'antd-mobile'
-import {Home} from './home/'
 
 import home from 'assets/images/home.png'
 import homeActive from 'assets/images/homeActive.png'
@@ -12,7 +11,8 @@ import categoryActive from 'assets/images/categoryActive.png'
 import doc from 'assets/images/doc.png'
 import { LayoutWrap } from './layout'
 
-
+import { Home } from './home/'
+import { Category } from './category/'
 export default class Layout extends Component {
   constructor(props) {
     super(props);
@@ -21,11 +21,10 @@ export default class Layout extends Component {
       hidden: false,
       fullScreen: true,
     };
-
   }
-
-
-
+componentDidMount(){
+ 
+}
   render() {
     return (
       <LayoutWrap>
@@ -91,12 +90,12 @@ export default class Layout extends Component {
               }}
               data-seed="logId1"
             >
-              <div>2</div>
+              <Category></Category>
             </TabBar.Item>
             <TabBar.Item
               icon={
                 <div style={{
-                  zIndex:'999',
+                  zIndex: '999',
                   marginTop: '-.293333rem',
                   width: '1.173333rem',
                   height: '1.466667rem',
@@ -106,7 +105,7 @@ export default class Layout extends Component {
               }
               selectedIcon={
                 <div style={{
-                  zIndex:'999',
+                  zIndex: '999',
                   marginTop: '-.293333rem',
                   width: '1.173333rem',
                   height: '1.466667rem',

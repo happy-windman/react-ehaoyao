@@ -1,7 +1,7 @@
 import React from 'react'
 import { Carousel } from 'antd-mobile';
 import { connect } from 'react-redux'
-
+import {SwiperWrap} from './styledHome'
 import {GETLIST} from 'pages/home/action-types'
 
 const mapState = (state)=>{
@@ -23,16 +23,17 @@ const mapDispatch = dispatch =>{
 class Swiper extends React.Component {
   state = {
 
-    imgHeight: 176,
   }
   componentDidMount() { 
     this.props.loadData()
   }
+
   render() {
-    console.log(1)
     let picList = this.props.list[0] ? this.props.list[0].gallery : []
     return (
-        <Carousel
+      <SwiperWrap>
+      {
+        picList.length&&<Carousel
           autoplay={true}
           infinite
           slideWidth={1}
@@ -47,15 +48,14 @@ class Swiper extends React.Component {
                 src={val.imageUrl}
                 alt=""
                 style={{ width: '100%', verticalAlign: 'top' }}
-                onLoad={() => {
-                  window.dispatchEvent(new Event('resize'));
-                  this.setState({ imgHeight: 'auto' });
-                }}
               />
             </a>
           ))}
+          
         </Carousel>
-  
+      }
+        
+    </SwiperWrap>
     );
   }
 }
