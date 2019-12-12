@@ -2,7 +2,7 @@ import React from 'react'
 import { Carousel } from 'antd-mobile';
 import { connect } from 'react-redux'
 import {SwiperWrap} from './styledHome'
-import {GETLIST} from 'pages/home/action-types'
+import {GETLIST} from 'pages/home/home/action-types'
 
 const mapState = (state)=>{
   return {

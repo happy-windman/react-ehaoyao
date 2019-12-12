@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
 export const LayoutWrap = styled.div`
-
+.am-tab-bar-tab-title{
+       margin: 0 !important;
+}
+.am-tab-bar-bar-hidden-bottom{
+  bottom:-80px;
+}
 .am-tabs-pane-wrap {
   overflow:hidden;
 }

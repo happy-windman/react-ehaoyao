@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import BScroll from 'better-scroll'
 
-import {get} from '../../utils/http'
+import {get} from 'utils/http'
 
 import Header from './header'
 import Swiper from './swiper'

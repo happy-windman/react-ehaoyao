@@ -1,5 +1,5 @@
 import {takeEvery} from 'redux-saga/effects'
-import { sagas as home } from 'pages/home'
+import { sagas as home } from 'pages/home/home'
 
 let {GETLIST} = home.types
 

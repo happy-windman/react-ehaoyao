@@ -1,6 +1,6 @@
 import * as types from './action-types'
 import { put } from 'redux-saga/effects'
-import { get } from '../../utils/http'
+import { get } from 'utils/http'
 import { LOADDATA } from './action-types'
 
 function* loadData(action) {

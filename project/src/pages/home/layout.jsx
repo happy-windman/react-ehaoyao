@@ -9,31 +9,36 @@ import my from 'assets/images/my.png'
 import category from 'assets/images/category.png'
 import categoryActive from 'assets/images/categoryActive.png'
 import doc from 'assets/images/doc.png'
-import { LayoutWrap } from './layout'
+import { LayoutWrap } from './layout.js'
 
 import { Home } from './home/'
 import { Category } from './category/'
-export default class Layout extends Component {
+
+import { Switch } from 'react-router-dom'
+export default class HomeLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'homeTab',
       hidden: false,
-      fullScreen: true,
+      fullScreen: true, 
     };
   }
 componentDidMount(){
  
 }
+
   render() {
+    let pathName = this.props.location.pathname
     return (
+      <Switch>
       <LayoutWrap>
         <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>
           <TabBar
             unselectedTintColor="#949494"
             tintColor="#33A3F4"
             barTintColor="white"
-            hidden={this.state.hidden}
+            hidden={pathName === '/home/friend'}
+            prerenderingSiblingsNumber="0"
           >
             <TabBar.Item
               key="Home"
@@ -51,16 +56,14 @@ componentDidMount(){
               }}
               />
               }
-              selected={this.state.selectedTab === 'homeTab'}
-
+              selected={pathName === '/home/index'}
               onPress={() => {
-                this.setState({
-                  selectedTab: 'homeTab',
-                });
+                this.props.history.push('/home/index')
               }}
               data-seed="logId"
             >
-              <Home></Home>
+ 
+            <Home></Home>
             </TabBar.Item>
             <TabBar.Item
               icon={
@@ -73,7 +76,6 @@ componentDidMount(){
               }
               selectedIcon={
                 <div style={{
-
                   width: '1.173333rem',
                   height: '1.173333rem',
                   background: `url(${categoryActive}) center center /  1.173333rem 1.173333rem no-repeat`
@@ -82,15 +84,13 @@ componentDidMount(){
               }
 
               key="category"
-              selected={this.state.selectedTab === 'categoryTab'}
+              selected={pathName === '/home/category'}
               onPress={() => {
-                this.setState({
-                  selectedTab: 'categoryTab',
-                });
+                this.props.history.push('/home/category')
               }}
               data-seed="logId1"
             >
-              <Category></Category>
+                <Category></Category>
             </TabBar.Item>
             <TabBar.Item
               icon={
@@ -113,14 +113,11 @@ componentDidMount(){
                 }}
                 />
               }
-
               key="Friend"
-
-              selected={this.state.selectedTab === 'friendTab'}
+              selected={pathName === '/home/friend'}
               onPress={() => {
-                this.setState({
-                  selectedTab: 'friendTab',
-                });
+         
+                this.props.history.push('/home/friend')
               }}
             >
               <div>3</div>
@@ -140,11 +137,9 @@ componentDidMount(){
               />}
 
               key="cart"
-              selected={this.state.selectedTab === 'cartTab'}
+              selected={pathName === '/home/cart'}
               onPress={() => {
-                this.setState({
-                  selectedTab: 'cartTab',
-                });
+                this.props.history.push('/home/cart')
               }}
             >
               <div>4</div>
@@ -164,11 +159,9 @@ componentDidMount(){
               />}
 
               key="my"
-              selected={this.state.selectedTab === 'yellowTab'}
+              selected={pathName === '/home/my'}
               onPress={() => {
-                this.setState({
-                  selectedTab: 'yellowTab',
-                });
+                this.props.history.push('/home/my')
               }}
             >
               <div>5</div>
@@ -176,6 +169,7 @@ componentDidMount(){
           </TabBar>
         </div>
       </LayoutWrap>
+      </Switch>
     );
   }
 }

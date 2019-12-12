@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import EndTime from 'components/endTime/endTime'
 import SeckillBoxItem from './seckillBox-item'
 import {SeckillBoxWrap} from './styledHome'
-import {get} from '../../utils/http'
+import {get} from 'utils/http'
 export default class SeckillBox extends Component {
     constructor(){
         super()

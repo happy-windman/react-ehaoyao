@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { PrimaryWrap } from './styledCategory'
-import { get } from '../../utils/http'
+import { get } from 'utils/http'
 import { connect } from 'react-redux'
 import {UPDATA} from './action-types'
 
