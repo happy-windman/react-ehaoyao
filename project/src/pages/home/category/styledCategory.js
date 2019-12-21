@@ -99,6 +99,7 @@ overflow-y: auto;
 
 export const SubjectWrap = styled.div`
 .subject {
+    padding-bottom:2rem;
     padding-top: .133333rem;
     width: 7.733333rem;
     background-color: #fff;

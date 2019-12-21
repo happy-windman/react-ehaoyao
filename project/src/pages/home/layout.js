@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
 export const LayoutWrap = styled.div`
+.am-popover-item-icon {
+    margin-right: 8px;
+    width:0.4rem !important;
+}
 .am-tab-bar-tab-title{
-       margin: 0 !important;
+    margin: 0 !important;
 }
 .am-tab-bar-bar-hidden-bottom{
   bottom:-80px;

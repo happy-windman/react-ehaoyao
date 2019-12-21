@@ -9,6 +9,13 @@ module.exports = function(app) {
     })
   )
   app.use(
+    '/front_api',
+    proxy({
+      target: 'http://m.ehaoyao.com',
+      changeOrigin: true,
+    })
+  )
+  app.use(
     '/ajax',
     proxy({
       target: 'http://localhost:9000',

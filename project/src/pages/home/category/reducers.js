@@ -1,7 +1,8 @@
-import { UPDATA } from './action-types'
+import { UPDATA ,GOTOP} from './action-types'
 
 const defaultState = {
-    list : []
+    list : [],
+    top:true
 }
 
 export default (state=defaultState,action)=>{
@@ -10,7 +11,10 @@ export default (state=defaultState,action)=>{
             return {
                 list:action.data
             }
-    
+        case GOTOP:
+            return {
+                top:true
+            }
         default:
             return state
     }

@@ -8,6 +8,7 @@ function* loadData(action) {
         const data = yield get({
             url: '/ajax/homeData'
         });
+        console.log(data);
         yield put({ type: LOADDATA, data: data });
     } catch (e) {
     }

@@ -13,6 +13,8 @@ import { LayoutWrap } from './layout.js'
 
 import { Home } from './home/'
 import { Category } from './category/'
+import { Friend } from './friend/'
+import { Cart } from './cart/'
 
 import { Switch } from 'react-router-dom'
 export default class HomeLayout extends Component {
@@ -27,6 +29,17 @@ componentDidMount(){
  
 }
 
+static getDerivedStateFromProps(props,state){
+
+  if(props.location.pathname==='/home/friend')
+    return {
+      hidden:true
+    }
+  return {
+      hidden:false
+  }
+  
+}
   render() {
     let pathName = this.props.location.pathname
     return (
@@ -37,7 +50,8 @@ componentDidMount(){
             unselectedTintColor="#949494"
             tintColor="#33A3F4"
             barTintColor="white"
-            hidden={pathName === '/home/friend'}
+            // hidden={pathName === '/home/friend'}
+            hidden={this.state.hidden}
             prerenderingSiblingsNumber="0"
           >
             <TabBar.Item
@@ -120,7 +134,7 @@ componentDidMount(){
                 this.props.history.push('/home/friend')
               }}
             >
-              <div>3</div>
+              <Friend></Friend>
             </TabBar.Item>
             <TabBar.Item
               icon={<div style={{
@@ -142,7 +156,7 @@ componentDidMount(){
                 this.props.history.push('/home/cart')
               }}
             >
-              <div>4</div>
+              <Cart></Cart>
             </TabBar.Item>
             <TabBar.Item
               icon={<div style={{

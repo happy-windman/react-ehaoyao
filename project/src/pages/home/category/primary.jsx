@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { PrimaryWrap } from './styledCategory'
 import { get } from 'utils/http'
 import { connect } from 'react-redux'
-import {UPDATA} from './action-types'
+import {UPDATA,GOTOP} from './action-types'
 
 
 @connect((state)=>{
@@ -15,6 +15,11 @@ import {UPDATA} from './action-types'
             dispatch({
                 type: UPDATA,
                 data,
+            })
+        },
+        goTop(){
+            dispatch({
+                type:GOTOP
             })
         }
     }
@@ -29,8 +34,9 @@ class Primary extends Component {
     }
     handleSelect = (val) => {
         this.setState({ current: val.cid })
-        this.props.loadData(val)   
+        this.props.loadData(val)    
     }
+  
     async componentDidMount() {
         let list = await get({
             url: '/api/mds/api/app/apiv2_4/thirdLevelCategorynew.json',
@@ -51,7 +57,7 @@ class Primary extends Component {
                     {
                         this.state.list.map((val, index) => (
                             <li className={`primary-item ${this.state.current === val.cid ? 'active' : ''}`}
-                                key={val.cid}
+                                key={val.cid} 
                                 onClick={()=>{
                                     this.handleSelect(val)
                                 }}

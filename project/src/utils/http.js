@@ -15,3 +15,11 @@ export const get = ({
         return result.data
     })
 }
+
+export const post = ({url,data}) =>{
+    console.log(data);
+    return axios.post(url,data)
+    .then(res=>{
+        return res.data
+    })
+}

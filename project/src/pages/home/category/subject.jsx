@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 @connect(state => {
     return {
-        list: state.category.list
+        list: state.category.list,
     }
 })
 class Subject extends Component {
@@ -15,9 +15,10 @@ class Subject extends Component {
             flag : false
         }
     }
-    goToTop= () =>{
+    goToTop = () =>{
         this.goTop.current.scrollTop = 0
     }
+ 
     handleOnScroll(){
         let flag = false 
         let dom = this.goTop.current
@@ -29,12 +30,10 @@ class Subject extends Component {
             flag
         })
     }
-    componentDidMount(){
-        console.log(111);
-        
-    }
+
     render() {
         let list = this.props.list.list ? this.props.list.list : []
+       
         return (
             <SubjectWrap >
                 {
@@ -91,7 +90,6 @@ class Subject extends Component {
                                     )
                                 })
                             }
-                           
                         </div>
                     )
                 }
