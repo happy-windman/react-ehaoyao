@@ -104,7 +104,7 @@ static getDerivedStateFromProps(props,state){
               }}
               data-seed="logId1"
             >
-                <Category></Category>
+                <Category history={this.props.history}></Category>
             </TabBar.Item>
             <TabBar.Item
               icon={
@@ -134,7 +134,7 @@ static getDerivedStateFromProps(props,state){
                 this.props.history.push('/home/friend')
               }}
             >
-              <Friend></Friend>
+              <Friend history={this.props.history}></Friend>
             </TabBar.Item>
             <TabBar.Item
               icon={<div style={{
@@ -156,7 +156,7 @@ static getDerivedStateFromProps(props,state){
                 this.props.history.push('/home/cart')
               }}
             >
-              <Cart></Cart>
+              <Cart history={this.props.history}></Cart>
             </TabBar.Item>
             <TabBar.Item
               icon={<div style={{

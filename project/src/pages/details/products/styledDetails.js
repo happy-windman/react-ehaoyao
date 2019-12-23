@@ -675,6 +675,12 @@ export const FooterWrap = styled.footer`
         border-right: 1px solid #e5e5e5;
         border-top: 1px solid #e5e5e5;
         cursor: pointer;
-        
+        a{
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color:#999;
+        }
     }
 `

@@ -1,23 +1,29 @@
-import React from 'react'
+import React,{}from 'react'
 import {HeaderWrap,LoginBarWrap} from './styledCart'
+
+
 export default function Header (props){
   
-  
-
+console.log(props)
     return (
+      
+      
       <>
       <HeaderWrap>
-          <div className="goback"></div>
+          <div className="goback" onClick={props.history.goBack}></div>
           <div className="main">
             <div className="main-title">
               <ul className="menu-tab">
-              
-                <li className={`tab-item  ${props.type==='OTC' ? 'on' : ''}`} onClick={()=>{props.typeChange('OTC')}}>购物车<i></i></li>
-                <li className={`tab-item  ${props.type==='RX' ? 'on' : ''}`} onClick={()=>{props.typeChange('RX')}}>需求清单<i></i></li>
+                <li className={`tab-item  ${props.type==='OTC' ? 'on' : ''}`} onClick={()=>{props.typeChange('OTC')}}>购物车<i>{props.list['OTC'].length}</i></li>
+                <li className={`tab-item  ${props.type==='RX' ? 'on' : ''}`} onClick={()=>{props.typeChange('RX')}}>需求清单<i>{props.list['RX'].length}</i></li>
               </ul>
             </div>
           </div>
-          <div className="right"><span className="operateBtn">编辑</span>
+          <div className="right"><span className="operateBtn" onClick={props.handleEdit}>
+            {
+              props.edit ?'完成':'编辑'
+            }
+            </span>
           </div>
       </HeaderWrap>
 

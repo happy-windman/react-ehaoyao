@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 import { HeaderWrap } from './styledCategory'
 export default class Header extends Component {
+    handleGoBack=()=>{
+        console.log(1)
+        
+    }
     render() {
+      
+        
         return (
             <HeaderWrap>
-                <div className="goback"></div>
+                <div className="goback" onClick={this.props.history.goBack}></div>
                 <div className="main">
                     <div className="search-wrapper">
                         <a href="/search.html" className="search-alink">

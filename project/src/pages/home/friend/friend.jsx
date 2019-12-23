@@ -5,7 +5,7 @@ export default class Friend extends Component {
   render() {
     return (
       <>
-        <Header></Header>
+        <Header history={this.props.history}></Header>
         <DoctorList></DoctorList>
       </>
     )

@@ -27,7 +27,7 @@ export default class Header extends Component {
         return (
             <HeaderWrap>
 
-                <div className="goback"></div>
+                <div className="goback" onClick={this.props.history.goBack}></div>
                 <div className="main">
                     <span className="main-title">问药师</span></div>
                 <div className="right">

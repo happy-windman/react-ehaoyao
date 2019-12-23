@@ -15,18 +15,32 @@ export default function Footer(props) {
             result,
             allCount
         }
-
     }
+
 
     return (
         <FooterWrap>
-            <div className="footer-wrapper">
-                <div className="totalAmount">
-                    <div>合计:<span className="amount">￥{allPrice().result}</span>
+            {
+                props.edit
+                    ? (<div className="footer-wrapper">
+                        <div className="totalAmount">
+                            <div>合计:<span className="amount">￥{allPrice().result}</span>
+                            </div>
+                        </div>
+                        <div className="btn-balance" onClick={props.handleEditDelete}>删除</div>
                     </div>
-                </div>
-                <div className="btn-balance">结算({allPrice().allCount})</div>
-            </div>
+                    )
+                    : (
+                        <div className="footer-wrapper">
+                            <div className="totalAmount">
+                                <div>合计:<span className="amount">￥{allPrice().result}</span>
+                                </div>
+                            </div>
+                            <div className="btn-balance">结算({allPrice().allCount})</div>
+                        </div>
+                    )
+            }
+
         </FooterWrap>
     )
 

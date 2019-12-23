@@ -5,7 +5,7 @@ export default class Category extends Component {
   render() {
     return (
       <>
-        <HeaderWrap></HeaderWrap>
+        <HeaderWrap history={this.props.history}></HeaderWrap>
         <Container></Container>
       </>
     )

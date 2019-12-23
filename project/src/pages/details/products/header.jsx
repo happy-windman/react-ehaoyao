@@ -3,10 +3,12 @@ import { HeaderWrap } from './styledDetails'
 
 
 class Header extends Component {
+
+ 
     render() {
         return (
             <HeaderWrap>
-                <div className="goback"></div>
+                <div className="goback" onClick={this.props.history.goBack}></div>
                 <div className="main">
                     <div className="nav">
                         <ul className="menu-list">

@@ -7,14 +7,19 @@ export default function Section(props) {
     let update = props.update
     let checkedCount = 0
     let type = props.type
-   
+
     const [List, setList] = useState({ list: copyList });
     const [all, setAll] = useState(true)
-
-
+    const [editAll, setEditAll] = useState(false)
 
     function handleChecked(pro, index) {
-        copyList[type][index].checked = !pro.checked
+        if (props.edit) {
+            copyList[type][index].editChecked = !pro.editChecked
+        } else {
+            copyList[type][index].checked = !pro.checked
+        }
+        console.log(copyList);
+        
         setList({ list: copyList })
         update(copyList)
         copyList[type].forEach(pro => {
@@ -22,18 +27,29 @@ export default function Section(props) {
                 checkedCount++;
         });
         if (copyList[type].length === checkedCount)
-            setAll(all=>true)
+            setAll(all => true)
     }
 
     function handleAllChecked() {
-        all
-            ? copyList[type].forEach(pro => {
-                pro.checked = false
-            })
-            : copyList[type].forEach(pro => {
-                pro.checked = true
-            })
-        setAll(all => !all)
+        if (props.edit) {
+            editAll
+                ? copyList[type].forEach(pro => {
+                    pro.editChecked = false
+                })
+                : copyList[type].forEach(pro => {
+                    pro.editChecked = true
+                })
+            setEditAll(editAll => !editAll)
+        } else {
+            all
+                ? copyList[type].forEach(pro => {
+                    pro.checked = false
+                })
+                : copyList[type].forEach(pro => {
+                    pro.checked = true
+                })
+            setAll(all => !all)
+        }
         setList({ list: copyList })
         update(copyList)
     }
@@ -70,15 +86,28 @@ export default function Section(props) {
                         <div className="hd">
                             <div className="title">
                                 <div className="left">
-                                    <span
-                                        className={`icon-check icon-check-box ${all ? 'icon-check-on' : ''}`}
-                                        onClick={handleAllChecked}
-                                    ></span>
+                                    {
+                                        props.edit
+                                            ? (<span
+                                                className={`icon-check icon-check-box ${editAll ? 'icon-check-on' : ''}`}
+                                                onClick={handleAllChecked}
+                                            ></span>)
+                                            : (<span
+                                                className={`icon-check icon-check-box ${all ? 'icon-check-on' : ''}`}
+                                                onClick={handleAllChecked}
+                                            ></span>)
+                                    }
+
                                     <span className="pharmacyName"> 好药师商城</span>
                                 </div>
-                                <span className="freeship">还差¥59.20包邮</span>
+                                {
+                                    props.edit ? '' : (<span className="freeship">还差¥59.20包邮</span>)
+                                }
                             </div>
-                            <div className="getCoupon" >领券</div>
+                            {
+                                props.edit ? '' : (<div className="getCoupon" >领券</div>)
+                            }
+
                         </div>
                         <div className="content">
                             <div className="cartList-item">
@@ -102,15 +131,13 @@ export default function Section(props) {
                                                 add={handleAdd}
                                                 minus={handleMinus}
                                                 countChange={countChange}
+                                                edit={props.edit}
                                             ></ProItem>
                                         )
                                     })
                                 }
                             </div>
                         </div>
-
-
-
                     </div>
                 )
             }

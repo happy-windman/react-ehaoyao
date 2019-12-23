@@ -17,7 +17,7 @@ class Swiper extends Component {
   
         return (
             <SwiperWrap>
-                {picArr.length&&(
+                {picArr.length ? (
                     <div className="gallery-container" id="product">
                     <div className="icon-label-box">
                         <span className="icon-label-rx"></span>
@@ -44,7 +44,7 @@ class Swiper extends Component {
                         </Carousel>
                     </div>
                 </div>
-                )
+                ) : (  <div className="gallery-container" id="product"></div>)
                 }
                 
             </SwiperWrap>

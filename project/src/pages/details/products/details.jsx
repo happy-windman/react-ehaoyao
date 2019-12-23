@@ -11,7 +11,8 @@ import { connect } from 'react-redux'
 import { LOADDATA } from 'pages/details/action-types'
 import Footer from './footer'
 @connect((state) => ({
-  id: state.details.data.goodsId
+  id: state.details.data.goodsId,
+
 }), (dispatch) => {
   return {
     loadData(id) {
@@ -30,6 +31,8 @@ class Details extends Component {
     }
   }
   async componentDidMount() {
+    console.log(this.props);
+    
     this.props.loadData(this.props.match.params.id)
   }
   componentWillUnmount = () => {
@@ -59,7 +62,7 @@ class Details extends Component {
   render() {
     return (
       <DetailsWrap>
-        {this.state.questions.length !== 0 ? <Header onOff={true}></Header> : <Header onOff={false}></Header>}
+        {this.state.questions.length !== 0 ? <Header onOff={true} history={this.props.history}></Header> : <Header onOff={false} history={this.props.history}></Header>}
         <div className="main">
           <Swiper></Swiper>
           <Title questions={this.state.questions}></Title>
